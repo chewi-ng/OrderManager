@@ -1,0 +1,61 @@
+﻿@model IEnumerable<OrderManager.Models.OrderModel>
+@{ 
+    ViewBag.Title = "Zamówienia";
+}
+
+<h2>Zamówienia</h2>
+<p>
+    @Html.ActionLink("Dodaj zamówienie", "Create")
+</p>
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchaser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Done)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Purchaser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company)
+        </td>
+        <td>
+            @(item.Done ? "Tak" : "Nie")
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { id = item.OrderId }, new { @class = "btn btn-sm btn-primary" })
+            @Html.ActionLink("Szczegóły", "Details", new { id = item.OrderId }, new { @class = "btn btn-sm btn-info" })
+            @Html.ActionLink("Usuń", "Delete", new { id = item.OrderId }, new { @class = "btn btn-sm btn-danger" })
+        </td>
+    </tr>
+        }
+
+    </table>
+} else { 
+    <p>Brak zamówień. Dodaj nowe zamówienie przyciskiem na górze.</p>
+}

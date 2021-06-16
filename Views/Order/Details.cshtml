@@ -1,0 +1,73 @@
+﻿@model OrderManager.Models.OrderModel
+
+@{
+    ViewBag.Title = "Szczegóły zamówienia o ID: " + Model.OrderId;
+}
+
+<h2>Szczegóły zamówienia</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purchaser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchaser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Done)
+        </dt>
+
+        <dd>
+            @(Model.Done?"Tak":"Nie")
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { /* id = Model.PrimaryKey */ }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Wróć do listy zamówień", "Index", null, new { @class = "btn btn-default" })
+</p>

@@ -1,0 +1,62 @@
+﻿@model OrderManager.Models.OrderModel
+
+@{
+    ViewBag.Title = "Usuwanie zamówienia o ID: "+Model.OrderId;
+}
+
+<h2>Usuń zamówienie</h2>
+
+<h3>Czy na pewno chcesz usunąć to zamówienie?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purchaser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchaser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdd)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Done)
+        </dt>
+
+        <dd>
+            @(Model.Done ? "Tak" : "Nie")
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-danger" />
+            @Html.ActionLink("Wróć do listy zamówień", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
